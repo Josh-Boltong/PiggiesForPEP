@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TrendCheck — Virality Scorer for YouTube Creators</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <span class="logo-mark">TC</span>
+      <span class="logo-text">TrendCheck</span>
+    </div>
+    <div class="header-tag">Powered by 2026 YouTube Trending Data</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">VIRAL</div>
+    <div class="hero-content">
+      <h1>Will your video<br><em>trend?</em></h1>
+      <p class="hero-sub">Paste your video details. Get a data-backed virality score and actionable tips — in seconds.</p>
+      <a href="#analyser" class="cta-btn">Analyse My Video ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">11</span>
+        <span class="stat-label">Countries Analysed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2026</span>
+        <span class="stat-label">Trending Dataset</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">Key Virality Signals</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANALYSER FORM -->
+  <section class="analyser" id="analyser">
+    <div class="analyser-inner">
+      <div class="section-label">// STEP 01</div>
+      <h2>Enter your video details</h2>
+
+      <form id="videoForm">
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="url">YouTube URL <span class="optional">(for reference)</span></label>
+            <input type="url" id="url" placeholder="https://youtube.com/watch?v=..." />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="title">Video Title <span class="required">*</span></label>
+            <input type="text" id="title" placeholder="e.g. I Survived 100 Days in the Arctic (not clickbait)" required />
+            <div class="field-hint" id="titleHint">0 characters</div>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="category">Category <span class="required">*</span></label>
+            <select id="category" required>
+              <option value="">Select category...</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Music">Music</option>
+              <option value="Gaming">Gaming</option>
+              <option value="News & Politics">News & Politics</option>
+              <option value="Sports">Sports</option>
+              <option value="Science & Technology">Science & Technology</option>
+              <option value="Howto & Style">Howto & Style</option>
+              <option value="People & Blogs">People & Blogs</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Film & Animation">Film & Animation</option>
+              <option value="Autos & Vehicles">Autos & Vehicles</option>
+              <option value="Travel & Events">Travel & Events</option>
+              <option value="Education">Education</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="publishDay">Publish Day <span class="required">*</span></label>
+            <select id="publishDay" required>
+              <option value="">Select day...</option>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div class="form-group">
+            <label for="publishTime">Publish Time (local) <span class="required">*</span></label>
+            <input type="time" id="publishTime" required />
+          </div>
+          <div class="form-group">
+            <label for="duration">Video Duration</label>
+            <input type="text" id="duration" placeholder="e.g. 12:34" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="tags">Tags <span class="optional">(comma separated)</span></label>
+            <input type="text" id="tags" placeholder="e.g. survival, arctic, challenge, documentary" />
+            <div class="field-hint" id="tagHint">0 tags</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="description">Description snippet <span class="optional">(first 2–3 sentences)</span></label>
+            <textarea id="description" rows="3" placeholder="Paste the opening lines of your video description..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-divider">
+          <span>Optional: Post-publish metrics</span>
+        </div>
+
+        <div class="form-row three-col">
+          <div class="form-group">
+            <label for="views">Views</label>
+            <input type="number" id="views" placeholder="e.g. 45000" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="likes">Likes</label>
+            <input type="number" id="likes" placeholder="e.g. 3200" min="0" />
+          </div>
+          <div class="form-group">
+            <label for="comments">Comments</label>
+            <input type="number" id="comments" placeholder="e.g. 480" min="0" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="channelSize">Channel Size</label>
+            <select id="channelSize">
+              <option value="">Select subscriber range...</option>
+              <option value="nano">Nano (&lt;10K subscribers)</option>
+              <option value="micro">Micro (10K–100K)</option>
+              <option value="mid">Mid-tier (100K–1M)</option>
+              <option value="macro">Macro (1M–10M)</option>
+              <option value="mega">Mega (10M+)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">Analyse Virality</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section class="results" id="results" style="display:none;">
+    <div class="results-inner">
+      <div class="section-label">// STEP 02</div>
+      <h2>Your Virality Report</h2>
+
+      <div class="score-card">
+        <div class="score-left">
+          <div class="score-label">Overall Virality Score</div>
+          <div class="score-display">
+            <span class="score-number" id="overallScore">--</span>
+            <span class="score-denom">/100</span>
+          </div>
+          <div class="score-verdict" id="scoreVerdict">Analysing...</div>
+        </div>
+        <div class="score-right">
+          <div class="score-ring-container">
+            <svg class="score-ring" viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314"/>
+            </svg>
+            <div class="ring-inner-score" id="ringScore">--</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB SCORES -->
+      <div class="sub-scores" id="subScores">
+        <!-- Filled by JS -->
+      </div>
+
+      <!-- AI ANALYSIS -->
+      <div class="ai-analysis">
+        <div class="analysis-header">
+          <div class="analysis-icon">⚡</div>
+          <h3>AI Analysis & Suggestions</h3>
+        </div>
+        <div class="analysis-body" id="analysisBody">
+          <div class="loading-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="reset-btn" id="resetBtn">← Analyse Another Video</button>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="hiw-inner">
+      <div class="section-label">// HOW IT WORKS</div>
+      <h2>Data-backed. Not guesswork.</h2>
+      <div class="signals-grid">
+        <div class="signal-card">
+          <div class="signal-icon">T</div>
+          <h4>Title Intelligence</h4>
+          <p>Analyses length, capitalisation, punctuation patterns, and emotional triggers found in 2026 trending titles.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-icon">C</div>
+          <h4>Category Momentum</h4>
+          <p>Scores your category against trending frequency data — some categories punch above their weight.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-icon">⏱</div>
+          <h4>Timing Windows</h4>
+          <p>Compares your publish time against the peak upload windows identified in trending data.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-icon">#</div>
+          <h4>Tag Quality</h4>
+          <p>Evaluates tag volume and specificity — trending videos show clear patterns in how they're tagged.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-icon">E</div>
+          <h4>Engagement Profile</h4>
+          <p>If you provide metrics, we compare your like/comment ratios against category-level trending benchmarks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">TrendCheck</div>
+      <div class="footer-note">Built on 2026 YouTube Trending Dataset · 11 countries · Hackathon project</div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="scorer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
