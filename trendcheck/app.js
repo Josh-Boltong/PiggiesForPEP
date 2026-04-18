@@ -3,7 +3,7 @@
 //  Handles form → score → Gemini AI suggestions → render
 // ============================================================
 
-const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
+const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"; // AI key left empty for privacy reasons, please insert your own to test.
 // ────────────────────────────────────────────────────────────
 
 const $ = id => document.getElementById(id);
