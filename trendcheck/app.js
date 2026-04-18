@@ -1,11 +1,8 @@
 // ============================================================
 //  app.js — TrendCheck Main Application Logic
-//  Handles form → score → Claude AI suggestions → render
+//  Handles form → score → Gemini AI suggestions → render
 // ============================================================
 
-// ── YOUR GEMINI API KEY (FREE) ───────────────────────────────
-// Get a free key at: https://aistudio.google.com → "Get API Key"
-// No credit card required
 const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
 // ────────────────────────────────────────────────────────────
 
@@ -152,7 +149,7 @@ function animateNumber(el, target) {
   }, 20);
 }
 
-// ── CLAUDE AI SUGGESTIONS ─────────────────────────────────────
+// ── AI SUGGESTIONS ─────────────────────────────────────
 async function fetchAISuggestions(input, result) {
   const { overall, verdict, subs } = result;
   const body = $('analysisBody');
