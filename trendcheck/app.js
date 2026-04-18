@@ -1,6 +1,6 @@
 // ============================================================
 //  app.js — TrendCheck Main Application Logic
-//  Handles form → score → Claude AI suggestions → render
+//  Handles form → score → Gemini suggestions → render
 // ============================================================
 
 const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"; // API key left empty for privacy, please insert your own for testing. 
