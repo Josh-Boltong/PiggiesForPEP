@@ -1,9 +1,9 @@
 // ============================================================
 //  app.js — TrendCheck Main Application Logic
-//  Handles form → score → Gemini AI suggestions → render
+//  Handles form → score → Claude AI suggestions → render
 // ============================================================
 
-const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"; // AI key left empty for privacy reasons, please insert your own to test.
+const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"; // API key left empty for privacy, please insert your own for testing. 
 // ────────────────────────────────────────────────────────────
 
 const $ = id => document.getElementById(id);
@@ -149,7 +149,7 @@ function animateNumber(el, target) {
   }, 20);
 }
 
-// ── AI SUGGESTIONS ─────────────────────────────────────
+// ── CLAUDE AI SUGGESTIONS ─────────────────────────────────────
 async function fetchAISuggestions(input, result) {
   const { overall, verdict, subs } = result;
   const body = $('analysisBody');
